@@ -21,7 +21,7 @@ There are a number of methods for normalizing the 450K data. Schalkwyk's group [
 
 For my analyses, to date, I use the [SWAN method](http://www.ncbi.nlm.nih.gov/pubmed/22703947&refdoi=10.1186/1471-2164-14-293) as implemented in the [minfi package](http://www.bioconductor.org/packages/release/bioc/html/minfi.html). As noted in the [wateRmelon paper](TODO), I have found that SWAN does do weird things at the extremes so it may be necessary to truncate the Beta values to (0 + 𝛿, 1 - 𝛿). Otherwise values very close to 1 may become outliers after logit-transforming to M-values.
 
-The [minfi paper](http://www.ncbi.nlm.nih.gov/pubmed/24478339) introduces stratified quantile normalization, available as `preprocessQuantile` which may also be a good alternative. But, that paper shows how small the differences in normalization methods really are. The same group has also developed [`preprocessFunnorm`](http://biorxiv.org/content/biorxiv/early/2014/02/23/002956.full.pdf) which uses control probes in a way that can also mediate batch effects (but that function is not yet available in `minfi`)....
+The [minfi paper](http://www.ncbi.nlm.nih.gov/pubmed/24478339) introduces stratified quantile normalization, available as `preprocessQuantile` which may also be a good alternative. But, that paper shows how small the differences in normalization methods really are. The same group has also developed [`preprocessFunnorm`](http://biorxiv.org/content/biorxiv/early/2014/02/23/002956.full.pdf) which uses control probes in a way that can also mediate batch effects (but that function is currently only available in the [devel version](https://bioconductor.org/packages/devel/bioc/html/minfi.html) of `minfi`)....
 
 PCA/MDS
 =======
