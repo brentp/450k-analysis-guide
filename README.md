@@ -98,3 +98,8 @@ Summary
 + perform appropriate modeling
 + find methylation regions
 + relate to expression
+
+References
+==========
+
+see refs.bib
