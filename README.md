@@ -17,11 +17,15 @@ QC and Normalization
 
 The `minfi` R package will produce an extensive quality control output from input samples. Examine this, looking out for samples with an odd beta distribution.
 
+Normalization consists of "background correction, color bias (or dye bias) adjustment and Infinium I/II-type bias correction." [cite](http://bib.oxfordjournals.org/content/early/2013/08/27/bib.bbt054.full)
+
 There are a number of methods for normalizing the 450K data. Schalkwyk's group [does a thorough analysis](http://www.ncbi.nlm.nih.gov/pubmed/23631413) of a number of different methods and finds a `dasen` method to be the best performing by their metrics. They provide a plethora of normalization methods in their [wateRmelon package](http://www.bioconductor.org/packages/release/bioc/html/wateRmelon.html).
 
 For my analyses, to date, I use the [SWAN method](http://www.ncbi.nlm.nih.gov/pubmed/22703947&refdoi=10.1186/1471-2164-14-293) as implemented in the [minfi package](http://www.bioconductor.org/packages/release/bioc/html/minfi.html). As noted in the [wateRmelon paper](TODO), I have found that SWAN does do weird things at the extremes so it may be necessary to truncate the Beta values to (0 + 𝛿, 1 - 𝛿). Otherwise values very close to 1 may become outliers after logit-transforming to M-values.
 
 The [minfi paper](http://www.ncbi.nlm.nih.gov/pubmed/24478339) introduces stratified quantile normalization, available as `preprocessQuantile` which may also be a good alternative. But, that paper shows how small the differences in normalization methods really are. The same group has also developed [`preprocessFunnorm`](http://biorxiv.org/content/biorxiv/early/2014/02/23/002956.full.pdf) which uses control probes in a way that can also mediate batch effects (but that function is currently only available in the [devel version](https://bioconductor.org/packages/devel/bioc/html/minfi.html) of `minfi`)....
+
+The authors of [this paper](http://bib.oxfordjournals.org/content/early/2013/08/27/bib.bbt054.full) suggest that: 1) it is better to remove probes with high detection p-values before normalization; 2) high-intensity (M + U signals) type I probes are often unreliable; 3) researchers "do not recommend applying any between-array normalization method to Infinium HumanMethylation450 data". They also suggest a delta-Beta cutoff in addition to p-value cut-offs in downstream analyses. [The paper](http://bib.oxfordjournals.org/content/early/2013/08/27/bib.bbt054.full) is a great overview if you are interested in normalization methods.
 
 PCA/MDS
 =======
