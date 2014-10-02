@@ -29,7 +29,7 @@ The authors of [this paper](http://bib.oxfordjournals.org/content/early/2013/08/
 
 PCA/MDS
 =======
-We often see correlation with some PC's for Plate and for SentrixPosition. These are poster-child batch (and position) effects. You should run PCA (or MDS), plot the first few dimensions and look for outliers. You can also test the principal components for correlation or separation among all of your known laboratory and clinical variables. Usually, gender will be separately perfectly by the 1st or 2nd principal component. This can be used to find sample mixups. See [this software](https://github.com/brentp/clinical-components) and the plot therein. There is also [shiny-methyl](http://f1000research.com/articles/3-175/v1) which allows interactive visualization and is good for QC.
+We often see correlation with some PC's for Plate and for SentrixPosition. These are poster-child batch (and position) effects. You should run PCA (or MDS), plot the first few dimensions and look for outliers. You can also test the principal components for correlation or separation among all of your known laboratory and clinical variables. Usually, gender will be separately perfectly by the 1st or 2nd principal component. This can be used to find sample mixups. See [this software](https://github.com/brentp/clinical-components) and the plot therein. There is also [shiny-methyl](http://f1000research.com/articles/3-175/v1) which allows interactive visualization and is good for QC. [MethylAid](http://bioinformatics.oxfordjournals.org/content/early/2014/09/12/bioinformatics.btu566.full) There is a similar bioconductor application.
 
 Batch-Effect Removal/Mitigation
 ===============================
