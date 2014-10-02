@@ -64,6 +64,8 @@ Although I find the implementation and use less than stellar, the idea from the 
 
 Many of the available methods for DMR-finding force one to use a certain class of model (GEE for A-clust) or to make assumptions (Gaussian errors for most methods). I have [developed a method](https://github.com/brentp/combined-pvalues/) that operates only on the p-values. It works by combining the p-values in the manner described in [our paper](http://www.ncbi.nlm.nih.gov/pubmed/22954632) and in the [original work of Katerina Kechris](http://www.ncbi.nlm.nih.gov/pubmed/20812907). With this, we can have more complex study-designs involving **twins, families, or repeated-measures** and use mixed-models to get the p-values and then we can combine the p-values with this method. Given a bed file (columns of chrom, start, end, p-value) of p-values from any study, comb-p can be run with a single command that results in annotated DMRs. **end shameless plug**
 
+Of methods I've tried [DMRcate](http://www.bioconductor.org/packages/release/bioc/html/DMRcate.html) is very fast and easy to use and performs well in some small comparisons. It handles any model than `limma` can handle and reports a DMR-region with a mean p-value.
+
 Again, there are dozens of methods for finding DMRs; I haven't tried them all.
 
 Mixture of Cells
